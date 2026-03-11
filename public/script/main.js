@@ -2,8 +2,38 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Portfolio Initialized");
     let lenis;
     let swiper;
+    const isTouchOrSmallScreen = window.matchMedia('(max-width: 768px), (hover: none), (pointer: coarse)').matches;
+
+    function setupAnchorScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !document.querySelector(targetId)) return;
+
+                e.preventDefault();
+                const scrollToTarget = () => {
+                    if (lenis) {
+                        lenis.scrollTo(targetId);
+                    } else {
+                        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                };
+
+                if (typeof window.closeMobileMenu === 'function' && document.body.classList.contains('no-scroll')) {
+                    window.closeMobileMenu().then(scrollToTarget);
+                } else {
+                    scrollToTarget();
+                }
+            });
+        });
+    }
 
     function setupLenis() {
+        if (isTouchOrSmallScreen) {
+            console.log("Lenis skipped on touch/small screens.");
+            return;
+        }
+
         lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -16,22 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(raf);
 
         console.log("Lenis initialized.");
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#' || !document.querySelector(targetId)) return;
-
-                if (typeof window.closeMobileMenu === 'function' && document.body.classList.contains('no-scroll')) {
-                    window.closeMobileMenu().then(() => {
-                        lenis.scrollTo(targetId);
-                    });
-                } else {
-                    lenis.scrollTo(targetId);
-                }
-            });
-        });
     }
 
     function setupNavIndicator() {
@@ -200,6 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
             initializeSecurityPopup();
         }
 
+        setupAnchorScrolling();
         setupLenis();
         setupBackToTopButton();
         setupScrollProgressBar();
@@ -224,10 +239,4 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(initializeSite, 100);
     });
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('keydown', function (event) {
-        if (event.key === "F12" || (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key.toUpperCase())) || (event.ctrlKey && event.key.toUpperCase() === 'U')) {
-            event.preventDefault();
-        }
-    });
 });

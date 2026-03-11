@@ -5635,3 +5635,800 @@ img {
     font-size: 0.85rem;
   }
 }
+
+/* Mobile hardening to prevent horizontal overflow on small screens */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#smooth-wrapper,
+#smooth-content,
+main,
+section {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.projects-showcase {
+  overflow: hidden;
+}
+
+.education-grid,
+.projects-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.project-node {
+  width: min(92vw, 400px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .logo a {
+    font-size: 1.1rem;
+    padding: 0 4px;
+  }
+
+  .header-container {
+    padding: 0 14px;
+  }
+
+  .mobile-nav {
+    top: 0;
+    height: 100dvh;
+  }
+
+  .mobile-nav a {
+    font-size: 1.35rem;
+  }
+
+  .project-node {
+    width: min(90vw, 320px);
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    width: calc(100% - 16px);
+    top: 8px;
+  }
+
+  .header-container {
+    height: 52px;
+    padding: 0 12px;
+  }
+
+  .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+  }
+
+  .projects-showcase {
+    height: 420px;
+  }
+}
+
+/* Mobile redesign: compact card scale and spacing */
+@media (max-width: 900px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .section-title,
+  .project-section-title {
+    margin-bottom: 36px;
+  }
+
+  .experience-content,
+  .education-card,
+  .project-card-grid,
+  .nc-contact-card,
+  .resume-highlights {
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-title,
+  .project-section-title {
+    font-size: clamp(1.55rem, 6.5vw, 2rem);
+    margin-bottom: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.85rem, 9vw, 2.45rem);
+  }
+
+  .hero-content #hero-title {
+    font-size: clamp(0.95rem, 4.2vw, 1.2rem);
+  }
+
+  .hero-content #hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  #education .education-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #education .card-header {
+    padding: 14px;
+  }
+
+  #education .card-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  #education .card-year {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+
+  #education .card-body {
+    padding: 16px;
+  }
+
+  #education .degree-title {
+    font-size: 1.08rem;
+    margin: 8px 0 10px;
+  }
+
+  #education .institution {
+    font-size: 0.93rem;
+    margin-bottom: 12px;
+  }
+
+  #education .details p {
+    font-size: 0.86rem;
+    margin-bottom: 7px;
+  }
+
+  #education .card-tags span {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  #education .card-footer {
+    padding: 12px 16px;
+  }
+
+  #education .education-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #education .education-stats .stat-item {
+    padding: 14px 10px;
+    border-radius: 14px;
+  }
+
+  #education .education-stats .stat-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  #education .education-stats .stat-value {
+    font-size: 1.35rem;
+  }
+
+  #education .education-stats .stat-label {
+    font-size: 0.78rem;
+  }
+
+  #skills .skills-flip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  #skills .skill-flip-card {
+    height: 146px;
+  }
+
+  #skills .skill-face-front {
+    padding: 10px 8px 8px;
+  }
+
+  #skills .skill-icon-shell {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 6px;
+  }
+
+  #skills .skill-icon-shell img {
+    width: 20px;
+    height: 20px;
+  }
+
+  #skills .skill-face-front h3 {
+    font-size: 0.84rem;
+    margin-bottom: 5px;
+  }
+
+  #skills .skill-meter {
+    width: 84%;
+    height: 5px;
+  }
+
+  #skills .skill-percent {
+    margin-top: 4px;
+    font-size: 0.76rem;
+  }
+
+  #skills .skill-face-back {
+    gap: 4px;
+    padding: 10px 8px;
+  }
+
+  #skills .skill-face-back h3 {
+    font-size: 0.76rem;
+  }
+
+  #skills .skill-face-back p {
+    font-size: 0.57rem;
+    line-height: 1.2;
+  }
+
+  #projects .projects-controls {
+    padding: 0;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  #projects .projects-view-btn {
+    padding: 8px 12px;
+    gap: 6px;
+    font-size: 0.8rem;
+  }
+
+  #projects .projects-showcase {
+    height: 460px;
+    margin-bottom: 50px;
+  }
+
+  #projects .project-node {
+    width: min(88vw, 280px);
+    height: 390px;
+  }
+
+  #projects .project-card {
+    border-radius: 16px;
+  }
+
+  #projects .project-content {
+    padding: 14px;
+  }
+
+  #projects .project-title {
+    font-size: 1.15rem;
+  }
+
+  #projects .tech-tag {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  #projects .project-description {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    -webkit-line-clamp: 2;
+    margin-bottom: 8px;
+  }
+
+  #projects .project-stats {
+    font-size: 0.76rem;
+    gap: 8px;
+  }
+
+  #projects .project-links {
+    gap: 8px;
+  }
+
+  #projects .project-link {
+    width: 30px;
+    height: 30px;
+    font-size: 0.82rem;
+  }
+
+  #projects .projects-timeline-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  #projects .projects-timeline-btn i {
+    font-size: 0.82rem;
+  }
+
+  #projects #prev-btn {
+    left: 8px;
+  }
+
+  #projects #next-btn {
+    right: 8px;
+  }
+
+  #projects .projects-timeline-indicators {
+    bottom: -32px;
+  }
+
+  #projects .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  #projects .project-card-grid {
+    border-radius: 16px;
+  }
+
+  #projects .project-image-grid {
+    height: 160px;
+  }
+
+  #projects .project-content-grid {
+    padding: 14px;
+  }
+
+  #projects .project-title-grid {
+    font-size: 1.04rem;
+    margin-bottom: 8px;
+  }
+
+  #projects .project-tech-grid {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  #projects .tech-tag-grid {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  #projects .project-description-grid {
+    font-size: 0.83rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  #projects .project-footer-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  #projects .project-stats-grid {
+    font-size: 0.76rem;
+    gap: 10px;
+  }
+
+  #projects .project-link-grid {
+    width: 30px;
+    height: 30px;
+    font-size: 0.82rem;
+  }
+
+  .project-modal .modal-content {
+    width: min(94vw, 460px);
+    max-height: 86vh;
+    border-radius: 14px;
+  }
+
+  .project-modal .modal-image-container {
+    height: 150px;
+  }
+
+  .project-modal .modal-body {
+    padding: 14px;
+  }
+
+  .project-modal .modal-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .project-modal .modal-description {
+    font-size: 0.82rem;
+    margin-bottom: 12px;
+  }
+
+  .project-modal .modal-tech {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .project-modal .modal-stats {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .project-modal .modal-image-buttons {
+    gap: 6px;
+  }
+
+  .project-modal .modal-image-button {
+    font-size: 0.72rem;
+    padding: 6px 10px;
+  }
+
+  #resume .resume-showcase {
+    padding: 10px 0;
+  }
+
+  #resume .resume-details {
+    padding: 0;
+  }
+
+  #resume .resume-details h3 {
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+  }
+
+  #resume .resume-details p {
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+  }
+
+  #resume .resume-stats {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  #resume .resume-stats .stat-item {
+    flex: 1 1 calc(33.333% - 10px);
+    min-width: 82px;
+    padding: 8px 6px;
+    border-radius: 12px;
+    background: rgba(0, 123, 255, 0.08);
+  }
+
+  #resume .stat-number {
+    font-size: 1.2rem;
+  }
+
+  #resume .stat-label {
+    font-size: 0.72rem;
+  }
+
+  #resume .resume-highlights {
+    padding: 14px;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  #resume .resume-highlights h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  #resume .resume-highlights li {
+    font-size: 0.84rem;
+    margin-bottom: 8px;
+  }
+
+  #resume .resume-cta {
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  #resume .resume-download-btn {
+    width: 100%;
+    padding: 11px 14px;
+    font-size: 0.85rem;
+  }
+
+  #resume .resume-alternative {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  #resume .resume-alternative span {
+    font-size: 0.8rem;
+  }
+
+  #resume .resume-contact-btn {
+    font-size: 0.86rem;
+  }
+
+  #contact .nc-contact-container {
+    padding: 10px 0;
+  }
+
+  #contact .nc-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #contact .nc-contact-card {
+    border-radius: 16px;
+  }
+
+  #contact .nc-card-icon-wrapper {
+    height: 84px;
+  }
+
+  #contact .nc-card-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  #contact .nc-card-icon i {
+    font-size: 1.2rem;
+  }
+
+  #contact .nc-card-title {
+    font-size: 1.08rem;
+    margin: 12px 0 8px;
+    padding: 0 14px;
+  }
+
+  #contact .nc-card-content {
+    padding: 0 14px 14px;
+  }
+
+  #contact .nc-card-description {
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+  }
+
+  #contact .nc-card-link {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  #contact .nc-social-links {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  #contact .nc-social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  #contact .nc-social-link i {
+    font-size: 1rem;
+  }
+
+  #contact .nc-location-info,
+  #contact .nc-availability-status {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+    gap: 8px;
+  }
+
+  #contact .nc-hobbies-grid {
+    margin-top: 10px;
+    gap: 8px;
+  }
+
+  #contact .nc-hobby-item {
+    padding: 8px 6px;
+    border-radius: 10px;
+  }
+
+  #contact .nc-hobby-item i {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+
+  #contact .nc-hobby-item span {
+    font-size: 0.7rem;
+  }
+
+  #contact .nc-terminal-container {
+    margin-top: 8px;
+    border-radius: 8px;
+  }
+
+  #contact .nc-terminal-output {
+    max-height: 100px;
+    padding: 8px;
+    font-size: 0.72rem;
+  }
+
+  #contact .nc-terminal-input-container {
+    padding: 6px 8px;
+  }
+
+  .premium-footer {
+    padding: 46px 0 24px !important;
+    margin-top: 30px !important;
+  }
+
+  .footer-main {
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+  }
+
+  .footer-desc {
+    font-size: 0.86rem;
+    margin-bottom: 18px;
+  }
+
+  .footer-social .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .footer-heading {
+    font-size: 1rem;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+
+  .contact-item h4 {
+    font-size: 0.9rem;
+  }
+
+  .contact-item p {
+    font-size: 0.85rem;
+  }
+
+  .footer-bottom {
+    padding-top: 16px;
+    gap: 10px;
+  }
+
+  .copyright p,
+  .footer-bottom-links a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .site-header {
+    width: calc(100% - 12px);
+    top: 6px;
+  }
+
+  .header-container {
+    height: 50px;
+    padding: 0 10px;
+  }
+
+  .logo a {
+    font-size: 0.9rem;
+  }
+
+  .theme-toggle-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.92rem;
+  }
+
+  #skills .skill-flip-card {
+    height: 138px;
+  }
+
+  #projects .projects-showcase {
+    height: 420px;
+  }
+
+  #projects .project-node {
+    width: min(90vw, 250px);
+    height: 360px;
+  }
+
+  #projects .project-image {
+    height: 36%;
+  }
+
+  #projects .project-content {
+    padding: 12px;
+  }
+
+  #projects .project-title {
+    font-size: 1.02rem;
+  }
+
+  #projects .project-image-grid {
+    height: 145px;
+  }
+
+  .project-modal .modal-content {
+    width: 96vw;
+    max-height: 84vh;
+  }
+
+  .project-modal .modal-image-container {
+    height: 130px;
+  }
+
+  .project-modal .modal-image-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #education .education-stats {
+    grid-template-columns: 1fr;
+  }
+
+  #resume .resume-stats .stat-item {
+    flex: 1 1 100%;
+  }
+
+  #resume .resume-badge {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    margin-bottom: 14px;
+  }
+
+  #contact .nc-hobbies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .greeting-bubble {
+    max-width: 340px;
+    padding: 14px;
+  }
+
+  .greeting-bubble h3 {
+    font-size: 0.95rem;
+  }
+
+  .greeting-bubble p {
+    font-size: 0.82rem;
+  }
+}

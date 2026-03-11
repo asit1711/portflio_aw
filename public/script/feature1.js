@@ -115,17 +115,7 @@ function initializeSecurityPopup() {
         });
     }
 
-    // --- Attach the event listeners ---
-    document.addEventListener('contextmenu', showSecurityPopup);
-    document.addEventListener('keydown', (event) => {
-        const isDevToolsKey = event.key === "F12" ||
-            (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key.toUpperCase())) ||
-            (event.ctrlKey && event.key.toUpperCase() === 'U');
-
-        if (isDevToolsKey) {
-            showSecurityPopup(event);
-        }
-    });
-
-    console.log("Unique security feature initialized.");
+    // DevTools/right-click restrictions are intentionally disabled.
+    // Keep this feature available for future non-blocking notices if needed.
+    console.log("Security popup restrictions disabled.");
 }
